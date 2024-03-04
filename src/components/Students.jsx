@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { ButtonGroup } from "react-bootstrap";
+import StudentList from "./Studentlist";
+import AddStudent from "./AddStudent";
 
-class Students extends Component {
+class students extends Component {
   constructor(props) {
     super(props);
 
@@ -11,7 +13,7 @@ class Students extends Component {
         {
           id: 1,
           firstName: "John",
-          lastName: "doe",
+          lastName: "Doe",
           group: "React N32",
           doesWork: false,
         },
@@ -24,9 +26,9 @@ class Students extends Component {
         },
         {
           id: 3,
-          firstName: "Onfyor",
-          lastName: "Jahseh",
-          group: "React N50",
+          firstName: "Bruce",
+          lastName: "Li",
+          group: "React N50 ",
           doesWork: false,
         },
       ],
@@ -45,8 +47,8 @@ class Students extends Component {
           <ButtonGroup className="w-100">
             <input
               type="text"
-              placeholder="search"
-              className="form-control p-2 "
+              placeholder="Search"
+              className="form-control p-2"
             />
             <select name="filter" id="filter" className="form-select w-auto">
               <option value="All">All</option>
@@ -55,30 +57,19 @@ class Students extends Component {
               <option value="React N50">React N50</option>
               <option value="React N58">React N58</option>
             </select>
-            <button className="btn btn-outline-success" onClick={openAddModal}>
+            <button
+              className="btn btn-outline-success w-auto"
+              onClick={openAddModal}
+            >
               Add
             </button>
           </ButtonGroup>
         </div>
         <StudentList students={students} />
-
-        <Modal show={addModal} onHide={closeAddModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={closeAddModal}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={closeAddModal}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        <AddStudent addModal={addModal} closeAddModal={closeAddModal} />
       </div>
     );
   }
 }
 
-export default Students;
+export default students;

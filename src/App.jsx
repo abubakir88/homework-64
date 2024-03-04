@@ -1,3 +1,4 @@
+import { Component } from "react";
 import Students from "./components/Students";
 
 class App extends Component {
